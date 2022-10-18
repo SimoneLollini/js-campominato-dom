@@ -26,10 +26,10 @@ function generateBombs(min, max) {
             bombs.push(bombNumber)
         }
     }
-    // console.log(bombs);
+    console.log(bombs);
     return bombs
 }
-
+let punteggio = 0;
 function generateCells(parentElement, cellsNumber) {
     for (let i = 0; i < cellsNumber; i++) {
         const cellElement = document.createElement('div');
@@ -42,19 +42,24 @@ function generateCells(parentElement, cellsNumber) {
     for (let i = 0; i < cellSelector.length; i++) {
         const cell = cellSelector[i]
         cell.addEventListener('click', function () {
-
+            punteggio += 1;
+            if (punteggio >= 100 - 16) {
+                console.log("hai vinto");
+                pEl.innerText = `Hai vinto! Punteggio:${punteggio}`
+            }
+            console.log(punteggio);//da fixare (si aggiungono punti anche a gioco finito, vengono aggiunti punti quando ai clicca più volte sulla stessa casella)
             for (let i = 0; i < 16; i++) {
                 const bombEl = bombs[i];
                 // console.log(bombEl);
                 if (bombEl == cell.innerHTML) {
                     console.log("Questa è una bomba!");
                     cell.classList.add('danger');
-                    pEl.innerText = "Hai perso!"
+                    pEl.innerText = `Hai perso! Punteggio:${punteggio}`
                 } else {
                     cell.classList.add('active');
                     console.log(cell.innerHTML);
                 }
-                const checkIf = cell.classList.contains('active');
+                // const checkIf = cell.classList.contains('active');
                 // quando questa condizione è vera per tutte le celle eccetto quelle che hanno la bomba hai vinto
                 // console.log(checkIf);
 
@@ -64,6 +69,10 @@ function generateCells(parentElement, cellsNumber) {
     }
 }
 
+
+// if (punteggio > 100 - 16) {
+//     console.log("Hai vinto!");
+// }
 
 
 /*
