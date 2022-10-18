@@ -6,6 +6,7 @@
 
 body {
     background-color: slategrey;
+
 }
 
 .container {
@@ -25,6 +26,10 @@ body {
     align-items: center;
 }
 
+.cell:hover,
+button:hover {
+    cursor: pointer;
+}
 
 .d_none {
     display: none;
@@ -39,9 +44,9 @@ body {
 }
 
 button {
-    margin-top: 3rem;
+    margin: 0.25rem;
     border: 0;
-    padding: 1rem;
+    padding: 0.25rem;
     border-radius: 2rem;
-    font-size: 2rem;
+    font-size: 1rem;
 }

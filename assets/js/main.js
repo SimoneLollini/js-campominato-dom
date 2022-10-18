@@ -8,7 +8,8 @@
 
 const field = document.querySelector('.field');
 const btn = document.querySelector('button');
-const bombs = generateBombs(1, 100)
+const bombs = generateBombs(1, 100);
+const pEl = document.querySelector('span')
 btn.addEventListener('click', function () {
     field.innerHTML = '';
     const cellNumber = 100;
@@ -48,6 +49,7 @@ function generateCells(parentElement, cellsNumber) {
                 if (bombEl == cell.innerHTML) {
                     console.log("Questa è una bomba!");
                     cell.classList.add('danger');
+                    pEl.innerText = "Hai perso!"
                 }
             }
             cell.classList.add('active');
