@@ -14,7 +14,7 @@ btn.addEventListener('click', function () {
     field.innerHTML = '';
     const cellNumber = 100;
     generateCells(field, cellNumber);
-
+    pEl.innerText = ""
 });
 
 
@@ -50,14 +50,19 @@ function generateCells(parentElement, cellsNumber) {
                     console.log("Questa è una bomba!");
                     cell.classList.add('danger');
                     pEl.innerText = "Hai perso!"
+                } else {
+                    cell.classList.add('active');
+                    console.log(cell.innerHTML);
                 }
+                const checkIf = cell.classList.contains('active');
+                // quando questa condizione è vera per tutte le celle eccetto quelle che hanno la bomba hai vinto
+                // console.log(checkIf);
+
             }
-            cell.classList.add('active');
-            console.log(cell.innerHTML);
+
         })
     }
 }
-
 
 
 
@@ -67,5 +72,6 @@ function randomBombNumber(min, max) {
     return Math.ceil(Math.random() * (max - min));
 }
 // console.log(randomBombNumber(1, 100));
-// per ogni casella controllo se bombEl è uguale all' suo numero 
+
+// quando l'utente ha inserito per (100 - 16) volte la classe active senza inserire mai la classe danger ha vinto
 

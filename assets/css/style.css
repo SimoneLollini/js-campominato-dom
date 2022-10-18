@@ -39,7 +39,7 @@ button:hover {
     background-color: paleturquoise;
 }
 
-.active.danger {
+.danger {
     background-color: palevioletred;
 }
 
