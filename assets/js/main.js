@@ -13,6 +13,7 @@ btn.addEventListener('click', function () {
     field.innerHTML = '';
     const cellNumber = 100;
     generateCells(field, cellNumber);
+    generateBombs(1, 100)
 });
 
 
@@ -36,11 +37,6 @@ function generateCells(parentElement, cellsNumber) {
 
 // Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
 
-const bombs = [0]
-while (bombs == 1) {
-    bombs.push("hai pushato")
-}
-console.log(bombs);
 
 /*
 */
@@ -48,3 +44,16 @@ function randomBombNumber(min, max) {
     return Math.ceil(Math.random() * (max - min));
 }
 // console.log(randomBombNumber(1, 100));
+
+
+function generateBombs(min, max) {
+    const bombs = []
+    while (bombs.length !== 16) {
+        const bombNumber = randomBombNumber(min, max)
+        if (!bombs.includes(bombNumber)) {
+            bombs.push(bombNumber)
+        }
+    }
+    console.log(bombs);
+    return bombs
+}
