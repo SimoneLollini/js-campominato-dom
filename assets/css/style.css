@@ -13,7 +13,7 @@ body {
     margin: 2rem auto;
     display: flex;
     flex-wrap: wrap;
-
+    justify-content: center;
 }
 
 .cell {
@@ -31,5 +31,17 @@ body {
 }
 
 .active {
-    background-color: aqua;
+    background-color: paleturquoise;
+}
+
+.active.danger {
+    background-color: palevioletred;
+}
+
+button {
+    margin-top: 3rem;
+    border: 0;
+    padding: 1rem;
+    border-radius: 2rem;
+    font-size: 2rem;
 }

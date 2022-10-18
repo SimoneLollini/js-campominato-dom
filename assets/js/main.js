@@ -8,12 +8,12 @@
 
 const field = document.querySelector('.field');
 const btn = document.querySelector('button');
-
+const bombs = generateBombs(1, 100)
 btn.addEventListener('click', function () {
     field.innerHTML = '';
     const cellNumber = 100;
     generateCells(field, cellNumber);
-    generateBombs(1, 100)
+
 });
 
 
@@ -25,7 +25,7 @@ function generateBombs(min, max) {
             bombs.push(bombNumber)
         }
     }
-    console.log(bombs);
+    // console.log(bombs);
     return bombs
 }
 
@@ -41,6 +41,15 @@ function generateCells(parentElement, cellsNumber) {
     for (let i = 0; i < cellSelector.length; i++) {
         const cell = cellSelector[i]
         cell.addEventListener('click', function () {
+
+            for (let i = 0; i < 16; i++) {
+                const bombEl = bombs[i];
+                // console.log(bombEl);
+                if (bombEl == cell.innerHTML) {
+                    console.log("Questa è una bomba!");
+                    cell.classList.add('danger');
+                }
+            }
             cell.classList.add('active');
             console.log(cell.innerHTML);
         })
@@ -56,3 +65,5 @@ function randomBombNumber(min, max) {
     return Math.ceil(Math.random() * (max - min));
 }
 // console.log(randomBombNumber(1, 100));
+// per ogni casella controllo se bombEl è uguale all' suo numero 
+
