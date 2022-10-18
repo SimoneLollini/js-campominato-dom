@@ -17,35 +17,6 @@ btn.addEventListener('click', function () {
 });
 
 
-function generateCells(parentElement, cellsNumber) {
-    for (let i = 0; i < cellsNumber; i++) {
-        const cellElement = document.createElement('div');
-        cellElement.className = 'cell';
-        cellElement.innerText = i + 1;
-        parentElement.append(cellElement);
-    }
-
-    const cellSelector = document.querySelectorAll('.cell');
-    for (let i = 0; i < cellSelector.length; i++) {
-        const singleCell = cellSelector[i]
-        singleCell.addEventListener('click', function () {
-            singleCell.classList.add('active');
-            console.log(singleCell.innerHTML);
-        })
-    }
-}
-
-// Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
-
-
-/*
-*/
-function randomBombNumber(min, max) {
-    return Math.ceil(Math.random() * (max - min));
-}
-// console.log(randomBombNumber(1, 100));
-
-
 function generateBombs(min, max) {
     const bombs = []
     while (bombs.length !== 16) {
@@ -57,3 +28,31 @@ function generateBombs(min, max) {
     console.log(bombs);
     return bombs
 }
+
+function generateCells(parentElement, cellsNumber) {
+    for (let i = 0; i < cellsNumber; i++) {
+        const cellElement = document.createElement('div');
+        cellElement.className = 'cell';
+        cellElement.innerText = i + 1;
+        parentElement.append(cellElement);
+    }
+
+    const cellSelector = document.querySelectorAll('.cell');
+    for (let i = 0; i < cellSelector.length; i++) {
+        const cell = cellSelector[i]
+        cell.addEventListener('click', function () {
+            cell.classList.add('active');
+            console.log(cell.innerHTML);
+        })
+    }
+}
+
+
+
+
+/*
+*/
+function randomBombNumber(min, max) {
+    return Math.ceil(Math.random() * (max - min));
+}
+// console.log(randomBombNumber(1, 100));
